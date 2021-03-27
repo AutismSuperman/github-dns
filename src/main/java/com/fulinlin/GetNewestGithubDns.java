@@ -1,16 +1,21 @@
 package com.fulinlin;
 
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.io.file.FileReader;
 import cn.hutool.core.io.file.FileWriter;
 import cn.hutool.core.io.resource.ResourceUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
+import org.jsoup.internal.StringUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,10 +80,21 @@ public class GetNewestGithubDns {
     }
 
     private static void generateGithubDnsHosts(List<GithubDns> list) {
-        File file = new File(ResourceUtil.getResource("github.hosts").getPath());
+        String projectPath = System.getProperty("user.dir");
+        String readmePath = projectPath + File.separator + "README.md";
+        File file = new File(readmePath);
+        FileReader fileReader = new FileReader(file);
+        String reader = fileReader.readString();
+        int i = StringUtils.indexOf(reader, "# update");
+        String substring = StringUtils.substring(reader, 0, i);
+        FileWriter writer = new FileWriter(file);
+        writer.write(substring);
+        FileUtil.appendUtf8String("# update " + LocalDate.now().toString() + "\n", file);
+        FileUtil.appendUtf8String("```" + "\n", file);
         list.forEach(val -> {
             FileUtil.appendUtf8String(val.getIpaddress() + "                        " + val.getHostname() + "\n", file);
         });
+        FileUtil.appendUtf8String("```", file);
     }
 
 
