@@ -89,7 +89,7 @@ public class GetNewestGithubDns {
         String substring = StringUtils.substring(reader, 0, i);
         FileWriter writer = new FileWriter(file);
         writer.write(substring);
-        FileUtil.appendUtf8String("# update " + LocalDate.now().toString() + "\n", file);
+        FileUtil.appendUtf8String("# update " + LocalDateTime.now().toString() + "\n", file);
         FileUtil.appendUtf8String("```" + "\n", file);
         list.forEach(val -> {
             FileUtil.appendUtf8String(val.getIpaddress() + "                        " + val.getHostname() + "\n", file);
