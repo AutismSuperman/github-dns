@@ -3,7 +3,7 @@
 name: Java CI with Maven
 on:
   schedule:
-  - cron: "* * * *"
+  - cron: "* * * * *"
 jobs:
   build:
     runs-on: ubuntu-latest
