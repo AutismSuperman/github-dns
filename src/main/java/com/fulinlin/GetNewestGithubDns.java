@@ -16,16 +16,66 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalInt;
 
 /**
- * @program: untitled
+ * @program: github-dns
  * @author: fulin
  * @create: 2021-03-03 17:14
  **/
 @Slf4j
 public class GetNewestGithubDns {
+
+    final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    public static void main(String[] args) throws IOException {
+        List<GithubDns> list = initGithubDnsList();
+        HttpsUtil.trustEveryone();
+        for (GithubDns githubDns : list) {
+            log.info("=================================================================");
+            log.info("抓取地址为：{} ", githubDns.getIpaddressUrl());
+            Document doc = Jsoup.connect(githubDns.getIpaddressUrl()).get();
+            Elements elementsByClass = doc.body().getElementsByClass("comma-separated");
+            Element first = elementsByClass.first();
+            String text = first.child(0).text();
+            log.info("抓取dns地址是 {} , 抓取地址：{} ", text, githubDns.getIpaddressUrl());
+            githubDns.setIpaddress(text);
+            log.info("=================================================================");
+        }
+        generateGithubDnsHosts(list);
+    }
+
+    private static void generateGithubDnsHosts(List<GithubDns> list) {
+        String projectPath = System.getProperty("user.dir");
+        String readmePath = projectPath + File.separator + "README.md";
+        File file = new File(readmePath);
+        FileReader fileReader = new FileReader(file);
+        String reader = fileReader.readString();
+        int i = StringUtils.indexOf(reader, "# update");
+        String substring = StringUtils.substring(reader, 0, i);
+        FileWriter writer = new FileWriter(file);
+        writer.write(substring);
+        FileUtil.appendUtf8String("# update " + formatter.format(LocalDateTime.now()) + "\n", file);
+        FileUtil.appendUtf8String("```" + "\n", file);
+        OptionalInt max = list.stream().map(GithubDns::getIpaddress).mapToInt(String::length).max();
+        list.forEach(val -> {
+            FileUtil.appendUtf8String(val.getIpaddress() + completionFormatter(val, max.orElse(0)) + val.getHostname() + "\n", file);
+        });
+        FileUtil.appendUtf8String("```", file);
+    }
+
+    private static String completionFormatter(GithubDns githubDns, int maxIpLength) {
+        int length = githubDns.getIpaddress().length();
+        int completion = maxIpLength - length;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 15 + completion; i++) {
+            sb.append(" ");
+        }
+        return sb.toString();
+    }
 
     private static List<GithubDns> initGithubDnsList() {
         List<GithubDns> list = new ArrayList<>();
@@ -60,41 +110,6 @@ public class GetNewestGithubDns {
         list.add(new GithubDns("github.community"));
         list.add(new GithubDns("media.githubusercontent.com"));
         return list;
-    }
-
-    public static void main(String[] args) throws IOException {
-        List<GithubDns> list = initGithubDnsList();
-        HttpsUtil.trustEveryone();
-        for (GithubDns githubDns : list) {
-            log.info("=================================================================");
-            log.info("抓取地址为：{} ", githubDns.getIpaddressUrl());
-            Document doc = Jsoup.connect(githubDns.getIpaddressUrl()).get();
-            Elements elementsByClass = doc.body().getElementsByClass("comma-separated");
-            Element first = elementsByClass.first();
-            String text = first.child(0).text();
-            log.info("抓取dns地址是 {} , 抓取地址：{} ", text, githubDns.getIpaddressUrl());
-            githubDns.setIpaddress(text);
-            log.info("=================================================================");
-        }
-        generateGithubDnsHosts(list);
-    }
-
-    private static void generateGithubDnsHosts(List<GithubDns> list) {
-        String projectPath = System.getProperty("user.dir");
-        String readmePath = projectPath + File.separator + "README.md";
-        File file = new File(readmePath);
-        FileReader fileReader = new FileReader(file);
-        String reader = fileReader.readString();
-        int i = StringUtils.indexOf(reader, "# update");
-        String substring = StringUtils.substring(reader, 0, i);
-        FileWriter writer = new FileWriter(file);
-        writer.write(substring);
-        FileUtil.appendUtf8String("# update " + LocalDateTime.now().toString() + "\n", file);
-        FileUtil.appendUtf8String("```" + "\n", file);
-        list.forEach(val -> {
-            FileUtil.appendUtf8String(val.getIpaddress() + "                        " + val.getHostname() + "\n", file);
-        });
-        FileUtil.appendUtf8String("```", file);
     }
 
 
