@@ -1,9 +1,9 @@
 # github-dns
 使用github action 爬取github 最新的dns解析
 Use GitHub action to crawl the latest DNS resolution of GitHub
-# update 2021-03-28 08:56:36
+# update 2021-03-28 09:15:31
 ```
-140.82.113.3                  github.com
+140.82.112.3                  github.com
 185.199.108.154               github.githubassets.com
 140.82.112.22                 central.github.com
 185.199.108.133               desktop.githubusercontent.com
@@ -25,7 +25,7 @@ Use GitHub action to crawl the latest DNS resolution of GitHub
 185.199.108.133               avatars0.githubusercontent.com
 185.199.108.133               avatars.githubusercontent.com
 140.82.113.9                  codeload.github.com
-52.216.225.80                 github-cloud.s3.amazonaws.com
+52.217.75.209                 github-cloud.s3.amazonaws.com
 52.216.179.211                github-com.s3.amazonaws.com
 52.217.10.12                  github-production-release-asset-2e65be.s3.amazonaws.com
 52.216.185.107                github-production-user-asset-6210df.s3.amazonaws.com
