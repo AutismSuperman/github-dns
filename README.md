@@ -1,5 +1,6 @@
 # github-dns
-# jsoup get the latest github dns
+使用github action 爬取github 最新的dns解析
+Use GitHub action to crawl the latest DNS resolution of GitHub
 # update 2021-03-28 06:55:38
 ```
 140.82.114.4                  github.com
