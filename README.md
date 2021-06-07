@@ -13,7 +13,7 @@ Android（安卓）系统：/system/etc/hosts
 
 推荐工具 [SwitchHosts](https://oldj.github.io/SwitchHosts/)
 
-# update 2021-06-06 13:02:38
+# update 2021-06-07 01:42:27
 ```
 140.82.113.4                  github.com
 185.199.108.154               github.githubassets.com
