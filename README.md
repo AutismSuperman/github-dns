@@ -1,7 +1,7 @@
 # github-dns
 **使用github action 定时爬取 github 最新的dns解析**。
 
-没有科!学!上网是真的麻烦。
+没有kx上网是真的麻烦。
 
 **如何使用**：
 
