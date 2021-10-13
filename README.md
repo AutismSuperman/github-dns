@@ -13,17 +13,17 @@ Android（安卓）系统：/system/etc/hosts
 
 推荐工具 [SwitchHosts](https://oldj.github.io/SwitchHosts/)
 
-# update 2021-10-12 12:29:58
+# update 2021-10-13 01:03:49
 ```
-140.82.114.4                  github.com
+140.82.112.4                  github.com
 185.199.108.154               github.githubassets.com
 140.82.114.21                 central.github.com
 185.199.108.133               desktop.githubusercontent.com
 185.199.108.153               assets-cdn.github.com
 185.199.108.133               camo.githubusercontent.com
 185.199.108.133               github.map.fastly.net
-199.232.5.194                 github.global.ssl.fastly.net
-140.82.113.3                  gist.github.com
+199.232.69.194                github.global.ssl.fastly.net
+140.82.114.3                  gist.github.com
 185.199.108.153               github.io
 140.82.112.6                  api.github.com
 185.199.108.133               raw.githubusercontent.com
@@ -37,11 +37,11 @@ Android（安卓）系统：/system/etc/hosts
 185.199.108.133               avatars0.githubusercontent.com
 185.199.108.133               avatars.githubusercontent.com
 140.82.114.9                  codeload.github.com
-52.217.66.164                 github-cloud.s3.amazonaws.com
-52.217.204.17                 github-com.s3.amazonaws.com
-52.217.14.252                 github-production-release-asset-2e65be.s3.amazonaws.com
-52.217.193.25                 github-production-user-asset-6210df.s3.amazonaws.com
-52.217.103.156                github-production-repository-file-5c1aeb.s3.amazonaws.com
+52.217.162.241                github-cloud.s3.amazonaws.com
+52.217.97.36                  github-com.s3.amazonaws.com
+52.217.94.212                 github-production-release-asset-2e65be.s3.amazonaws.com
+52.216.249.156                github-production-user-asset-6210df.s3.amazonaws.com
+52.217.38.172                 github-production-repository-file-5c1aeb.s3.amazonaws.com
 185.199.108.153               githubstatus.com
 64.71.144.202                 github.community
 185.199.108.133               media.githubusercontent.com
