@@ -13,9 +13,9 @@ Android（安卓）系统：/system/etc/hosts
 
 推荐工具 [SwitchHosts](https://oldj.github.io/SwitchHosts/)
 
-# update 2021-10-17 12:28:13
+# update 2021-10-18 01:06:02
 ```
-140.82.113.3                  github.com
+140.82.114.3                  github.com
 185.199.108.154               github.githubassets.com
 140.82.114.22                 central.github.com
 185.199.108.133               desktop.githubusercontent.com
@@ -23,9 +23,9 @@ Android（安卓）系统：/system/etc/hosts
 185.199.108.133               camo.githubusercontent.com
 185.199.108.133               github.map.fastly.net
 199.232.69.194                github.global.ssl.fastly.net
-140.82.113.4                  gist.github.com
+140.82.113.3                  gist.github.com
 185.199.108.153               github.io
-140.82.112.5                  api.github.com
+140.82.114.5                  api.github.com
 185.199.108.133               raw.githubusercontent.com
 185.199.108.133               user-images.githubusercontent.com
 185.199.108.133               favicons.githubusercontent.com
@@ -36,8 +36,8 @@ Android（安卓）系统：/system/etc/hosts
 185.199.108.133               avatars1.githubusercontent.com
 185.199.108.133               avatars0.githubusercontent.com
 185.199.108.133               avatars.githubusercontent.com
-140.82.113.9                  codeload.github.com
-52.216.16.160                 github-cloud.s3.amazonaws.com
+140.82.112.9                  codeload.github.com
+52.217.169.241                github-cloud.s3.amazonaws.com
 52.217.97.36                  github-com.s3.amazonaws.com
 52.216.146.227                github-production-release-asset-2e65be.s3.amazonaws.com
 52.216.89.19                  github-production-user-asset-6210df.s3.amazonaws.com
