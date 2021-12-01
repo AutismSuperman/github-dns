@@ -13,11 +13,11 @@ Android（安卓）系统：/system/etc/hosts
 
 推荐工具 [SwitchHosts](https://oldj.github.io/SwitchHosts/)
 
-# update 2021-12-01 01:05:57
+# update 2021-12-01 12:31:50
 ```
-140.82.112.4                  github.com
+140.82.113.4                  github.com
 185.199.108.154               github.githubassets.com
-140.82.112.22                 central.github.com
+140.82.113.21                 central.github.com
 185.199.108.133               desktop.githubusercontent.com
 185.199.108.153               assets-cdn.github.com
 185.199.108.133               camo.githubusercontent.com
@@ -36,10 +36,10 @@ Android（安卓）系统：/system/etc/hosts
 185.199.108.133               avatars1.githubusercontent.com
 185.199.108.133               avatars0.githubusercontent.com
 185.199.108.133               avatars.githubusercontent.com
-140.82.112.10                 codeload.github.com
-52.217.207.1                  github-cloud.s3.amazonaws.com
-52.216.78.4                   github-com.s3.amazonaws.com
-52.217.194.169                github-production-release-asset-2e65be.s3.amazonaws.com
+140.82.113.10                 codeload.github.com
+54.231.135.185                github-cloud.s3.amazonaws.com
+52.217.80.132                 github-com.s3.amazonaws.com
+54.231.131.17                 github-production-release-asset-2e65be.s3.amazonaws.com
 52.216.131.131                github-production-user-asset-6210df.s3.amazonaws.com
 52.216.28.204                 github-production-repository-file-5c1aeb.s3.amazonaws.com
 185.199.108.153               githubstatus.com
