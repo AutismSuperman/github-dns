@@ -13,7 +13,7 @@ Android（安卓）系统：/system/etc/hosts
 
 推荐工具 [SwitchHosts](https://oldj.github.io/SwitchHosts/)
 
-# update 2022-06-22 12:39:47
+# update 2022-06-23 01:55:00
 ```
 140.82.114.3                  github.com
 185.199.108.154               github.githubassets.com
@@ -23,7 +23,7 @@ Android（安卓）系统：/system/etc/hosts
 185.199.108.133               camo.githubusercontent.com
 185.199.108.133               github.map.fastly.net
 146.75.77.194                 github.global.ssl.fastly.net
-140.82.112.3                  gist.github.com
+140.82.112.4                  gist.github.com
 185.199.108.153               github.io
 140.82.114.5                  api.github.com
 185.199.108.133               raw.githubusercontent.com
@@ -36,12 +36,12 @@ Android（安卓）系统：/system/etc/hosts
 185.199.108.133               avatars1.githubusercontent.com
 185.199.108.133               avatars0.githubusercontent.com
 185.199.108.133               avatars.githubusercontent.com
-140.82.114.9                  codeload.github.com
+140.82.112.10                 codeload.github.com
 52.216.130.43                 github-cloud.s3.amazonaws.com
 54.231.228.105                github-com.s3.amazonaws.com
 52.217.197.65                 github-production-release-asset-2e65be.s3.amazonaws.com
 54.231.137.105                github-production-user-asset-6210df.s3.amazonaws.com
-52.217.160.97                 github-production-repository-file-5c1aeb.s3.amazonaws.com
+52.216.129.163                github-production-repository-file-5c1aeb.s3.amazonaws.com
 185.199.108.153               githubstatus.com
 64.71.144.211                 github.community
 185.199.108.133               media.githubusercontent.com
