@@ -13,19 +13,19 @@ Android（安卓）系统：/system/etc/hosts
 
 推荐工具 [SwitchHosts](https://oldj.github.io/SwitchHosts/)
 
-# update 2022-06-27 02:01:36
+# update 2022-06-27 12:42:34
 ```
-140.82.114.3                  github.com
+140.82.113.4                  github.com
 185.199.108.154               github.githubassets.com
-140.82.112.21                 central.github.com
+140.82.113.21                 central.github.com
 185.199.108.133               desktop.githubusercontent.com
 185.199.108.153               assets-cdn.github.com
 185.199.108.133               camo.githubusercontent.com
 185.199.108.133               github.map.fastly.net
 146.75.77.194                 github.global.ssl.fastly.net
-140.82.113.3                  gist.github.com
+140.82.114.3                  gist.github.com
 185.199.108.153               github.io
-140.82.114.6                  api.github.com
+140.82.113.6                  api.github.com
 185.199.108.133               raw.githubusercontent.com
 185.199.108.133               user-images.githubusercontent.com
 185.199.108.133               favicons.githubusercontent.com
@@ -36,12 +36,12 @@ Android（安卓）系统：/system/etc/hosts
 185.199.108.133               avatars1.githubusercontent.com
 185.199.108.133               avatars0.githubusercontent.com
 185.199.108.133               avatars.githubusercontent.com
-140.82.113.9                  codeload.github.com
-52.216.137.84                 github-cloud.s3.amazonaws.com
-52.217.74.92                  github-com.s3.amazonaws.com
-54.231.169.129                github-production-release-asset-2e65be.s3.amazonaws.com
-52.217.136.185                github-production-user-asset-6210df.s3.amazonaws.com
-52.216.169.115                github-production-repository-file-5c1aeb.s3.amazonaws.com
+140.82.112.10                 codeload.github.com
+54.231.202.185                github-cloud.s3.amazonaws.com
+52.217.110.172                github-com.s3.amazonaws.com
+52.216.137.172                github-production-release-asset-2e65be.s3.amazonaws.com
+52.216.140.204                github-production-user-asset-6210df.s3.amazonaws.com
+52.217.138.33                 github-production-repository-file-5c1aeb.s3.amazonaws.com
 185.199.108.153               githubstatus.com
 64.71.144.211                 github.community
 185.199.108.133               media.githubusercontent.com
