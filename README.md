@@ -13,17 +13,17 @@ Android（安卓）系统：/system/etc/hosts
 
 推荐工具 [SwitchHosts](https://oldj.github.io/SwitchHosts/)
 
-# update 2022-07-07 12:42:46
+# update 2022-07-08 02:04:15
 ```
-140.82.112.4                  github.com
+140.82.113.4                  github.com
 185.199.108.154               github.githubassets.com
-140.82.112.22                 central.github.com
+140.82.114.21                 central.github.com
 185.199.108.133               desktop.githubusercontent.com
 185.199.108.153               assets-cdn.github.com
 185.199.108.133               camo.githubusercontent.com
 185.199.108.133               github.map.fastly.net
 199.232.69.194                github.global.ssl.fastly.net
-140.82.112.3                  gist.github.com
+140.82.114.4                  gist.github.com
 185.199.108.153               github.io
 140.82.114.6                  api.github.com
 185.199.108.133               raw.githubusercontent.com
@@ -36,12 +36,12 @@ Android（安卓）系统：/system/etc/hosts
 185.199.108.133               avatars1.githubusercontent.com
 185.199.108.133               avatars0.githubusercontent.com
 185.199.108.133               avatars.githubusercontent.com
-140.82.112.10                 codeload.github.com
-52.217.80.4                   github-cloud.s3.amazonaws.com
-52.217.142.153                github-com.s3.amazonaws.com
-52.217.203.137                github-production-release-asset-2e65be.s3.amazonaws.com
-52.217.142.153                github-production-user-asset-6210df.s3.amazonaws.com
-52.217.138.129                github-production-repository-file-5c1aeb.s3.amazonaws.com
+140.82.113.9                  codeload.github.com
+54.231.50.42                  github-cloud.s3.amazonaws.com
+54.231.224.201                github-com.s3.amazonaws.com
+52.217.38.28                  github-production-release-asset-2e65be.s3.amazonaws.com
+54.231.160.49                 github-production-user-asset-6210df.s3.amazonaws.com
+54.231.140.49                 github-production-repository-file-5c1aeb.s3.amazonaws.com
 185.199.108.153               githubstatus.com
 64.71.144.211                 github.community
 185.199.108.133               media.githubusercontent.com
