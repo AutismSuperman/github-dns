@@ -13,36 +13,36 @@ Android（安卓）系统：/system/etc/hosts
 
 推荐工具 [SwitchHosts](https://oldj.github.io/SwitchHosts/)
 
-# update 2022-11-21 12:29:15
+# update 2022-11-28 01:08:01
 ```
-140.82.114.4                  github.com
-185.199.108.154               github.githubassets.com
-140.82.114.22                 central.github.com
-185.199.108.133               desktop.githubusercontent.com
-185.199.108.153               assets-cdn.github.com
-185.199.108.133               camo.githubusercontent.com
-185.199.108.133               github.map.fastly.net
-151.101.1.194                 github.global.ssl.fastly.net
-140.82.112.3                  gist.github.com
-185.199.108.153               github.io
-140.82.112.6                  api.github.com
-185.199.108.133               raw.githubusercontent.com
-185.199.108.133               user-images.githubusercontent.com
-185.199.108.133               favicons.githubusercontent.com
-185.199.108.133               avatars5.githubusercontent.com
-185.199.108.133               avatars4.githubusercontent.com
-185.199.108.133               avatars3.githubusercontent.com
-185.199.108.133               avatars2.githubusercontent.com
-185.199.108.133               avatars1.githubusercontent.com
-185.199.108.133               avatars0.githubusercontent.com
-185.199.108.133               avatars.githubusercontent.com
-140.82.113.10                 codeload.github.com
-52.216.50.209                 github-cloud.s3.amazonaws.com
-52.217.131.145                github-com.s3.amazonaws.com
-3.5.8.151                     github-production-release-asset-2e65be.s3.amazonaws.com
-52.217.40.92                  github-production-user-asset-6210df.s3.amazonaws.com
-52.217.140.201                github-production-repository-file-5c1aeb.s3.amazonaws.com
-185.199.108.153               githubstatus.com
-140.82.114.18                 github.community
-185.199.108.133               media.githubusercontent.com
+140.82.112.3                            github.com
+Subdomain List Page #140                github.githubassets.com
+140.82.113.21                           central.github.com
+Subdomain List Page #283                desktop.githubusercontent.com
+Subdomain List Page #1207               assets-cdn.github.com
+Subdomain List Page #205                camo.githubusercontent.com
+Subdomain List Page #316                github.map.fastly.net
+Subdomain List Page #410                github.global.ssl.fastly.net
+140.82.113.3                            gist.github.com
+Domain List Page #32                    github.io
+140.82.113.5                            api.github.com
+Subdomain List Page #10                 raw.githubusercontent.com
+Subdomain List Page #171                user-images.githubusercontent.com
+Subdomain List Page #927                favicons.githubusercontent.com
+Subdomain List Page #1198               avatars5.githubusercontent.com
+Subdomain List Page #1046               avatars4.githubusercontent.com
+Subdomain List Page #171                avatars3.githubusercontent.com
+Subdomain List Page #265                avatars2.githubusercontent.com
+Subdomain List Page #171                avatars1.githubusercontent.com
+Subdomain List Page #1033               avatars0.githubusercontent.com
+Subdomain List Page #171                avatars.githubusercontent.com
+140.82.114.9                            codeload.github.com
+Subdomain List Page #208                github-cloud.s3.amazonaws.com
+Subdomain List Page #502                github-com.s3.amazonaws.com
+Subdomain List Page #402                github-production-release-asset-2e65be.s3.amazonaws.com
+Subdomain List Page #1174               github-production-user-asset-6210df.s3.amazonaws.com
+Subdomain List Page #774                github-production-repository-file-5c1aeb.s3.amazonaws.com
+Domain List Page #1427                  githubstatus.com
+140.82.112.18                           github.community
+Subdomain List Page #255                media.githubusercontent.com
 ```
