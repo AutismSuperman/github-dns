@@ -13,7 +13,7 @@ Android（安卓）系统：/system/etc/hosts
 
 推荐工具 [SwitchHosts](https://oldj.github.io/SwitchHosts/)
 
-# update 2022-12-05 01:04:02
+# update 2022-12-05 12:25:58
 ```
 140.82.114.3                            github.com
 Subdomain List Page #140                github.githubassets.com
