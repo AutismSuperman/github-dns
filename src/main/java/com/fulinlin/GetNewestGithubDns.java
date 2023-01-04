@@ -4,22 +4,21 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.file.FileReader;
 import cn.hutool.core.io.file.FileWriter;
 import cn.hutool.core.io.resource.ResourceUtil;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.jsoup.Jsoup;
-import org.jsoup.internal.StringUtil;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import org.xbill.DNS.*;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @program: github-dns
@@ -29,23 +28,32 @@ import java.util.OptionalInt;
 @Slf4j
 public class GetNewestGithubDns {
 
-    final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final String DNS_SERVER = "8.8.8.8";
+
+    private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static void main(String[] args) throws IOException {
-        List<GithubDns> list = initGithubDnsList();
-        HttpsUtil.trustEveryone();
-        for (GithubDns githubDns : list) {
-            log.info("=================================================================");
-            log.info("抓取地址为：{} ", githubDns.getIpaddressUrl());
-            Document doc = Jsoup.connect(githubDns.getIpaddressUrl()).get();
-            Elements elementsByClass = doc.body().getElementsByClass("comma-separated");
-            Element first = elementsByClass.first();
-            String text = first.child(0).text();
-            log.info("抓取dns地址是 {} , 抓取地址：{} ", text, githubDns.getIpaddressUrl());
-            githubDns.setIpaddress(text);
-            log.info("=================================================================");
+        List<GithubDns> result = new ArrayList<>();
+        List<GithubDns> domainList = initGithubDnsList();
+        log.info("=================================================================");
+        for (GithubDns githubDns : domainList) {
+            Resolver resolver = new SimpleResolver(DNS_SERVER);
+            Lookup lookup = new Lookup(githubDns.getHostname(), Type.A);
+            lookup.setResolver(resolver);
+            Cache cache = new Cache();
+            lookup.setCache(cache);
+            lookup.run();
+            if (lookup.getResult() == Lookup.SUCCESSFUL) {
+                Record[] records = lookup.getAnswers();
+                for (Record record : records) {
+                    result.add(new GithubDns(githubDns.getHostname(), record.rdataToString()));
+                }
+                String address = Stream.of(records).map(Record::rdataToString).collect(Collectors.joining(","));
+                log.info("hostname: {} , address：{} ", githubDns.getHostname(), address);
+            }
         }
-        generateGithubDnsHosts(list);
+        log.info("=================================================================");
+        generateGithubDnsHosts(result);
     }
 
     private static void generateGithubDnsHosts(List<GithubDns> list) {
@@ -77,40 +85,34 @@ public class GetNewestGithubDns {
         return sb.toString();
     }
 
-    private static List<GithubDns> initGithubDnsList() {
+    private static List<GithubDns> initGithubDnsList() throws IOException {
+        BufferedReader githubDomains = ResourceUtil.getUtf8Reader("GithubDomains");
         List<GithubDns> list = new ArrayList<>();
-        list.add(new GithubDns("github.com"));
-        list.add(new GithubDns("github.githubassets.com"));
-        list.add(new GithubDns("central.github.com"));
-        list.add(new GithubDns("desktop.githubusercontent.com"));
-        list.add(new GithubDns("assets-cdn.github.com"));
-        list.add(new GithubDns("camo.githubusercontent.com"));
-        list.add(new GithubDns("github.map.fastly.net"));
-        list.add(new GithubDns("github.global.ssl.fastly.net"));
-        list.add(new GithubDns("gist.github.com"));
-        list.add(new GithubDns("github.io"));
-        list.add(new GithubDns("api.github.com"));
-        list.add(new GithubDns("raw.githubusercontent.com"));
-        list.add(new GithubDns("user-images.githubusercontent.com"));
-        list.add(new GithubDns("favicons.githubusercontent.com"));
-        list.add(new GithubDns("avatars5.githubusercontent.com"));
-        list.add(new GithubDns("avatars4.githubusercontent.com"));
-        list.add(new GithubDns("avatars3.githubusercontent.com"));
-        list.add(new GithubDns("avatars2.githubusercontent.com"));
-        list.add(new GithubDns("avatars1.githubusercontent.com"));
-        list.add(new GithubDns("avatars0.githubusercontent.com"));
-        list.add(new GithubDns("avatars.githubusercontent.com"));
-        list.add(new GithubDns("codeload.github.com"));
-        list.add(new GithubDns("github-cloud.s3.amazonaws.com"));
-        list.add(new GithubDns("github-com.s3.amazonaws.com"));
-        list.add(new GithubDns("github-production-release-asset-2e65be.s3.amazonaws.com"));
-        list.add(new GithubDns("github-production-user-asset-6210df.s3.amazonaws.com"));
-        list.add(new GithubDns("github-production-repository-file-5c1aeb.s3.amazonaws.com"));
-        list.add(new GithubDns("githubstatus.com"));
-        list.add(new GithubDns("github.community"));
-        list.add(new GithubDns("media.githubusercontent.com"));
+        String line;
+        while ((line = githubDomains.readLine()) != null) {
+            list.add(new GithubDns(line));
+        }
+        githubDomains.close();
         return list;
     }
 
 
+}
+
+@Data
+class GithubDns {
+
+    private String hostname;
+
+    private String ipaddress;
+
+
+    public GithubDns(String hostname) {
+        this.hostname = hostname;
+    }
+
+    public GithubDns(String hostname, String ipaddress) {
+        this.hostname = hostname;
+        this.ipaddress = ipaddress;
+    }
 }
