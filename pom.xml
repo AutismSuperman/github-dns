@@ -9,11 +9,12 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <dnsjava.version>3.5.2</dnsjava.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <org.projectlombok.version>1.18.18</org.projectlombok.version>
-        <org.slf4j.version>1.7.30</org.slf4j.version>
-        <ch.qos.logback.version>1.4.5</ch.qos.logback.version>
+        <org.slf4j.version>1.7.36</org.slf4j.version>
+        <logback.version>1.2.11</logback.version>
         <cn.hutool.version>5.8.11</cn.hutool.version>
         <org.jsoup.version>1.13.1</org.jsoup.version>
         <org.apache.commons.version>3.12.0</org.apache.commons.version>
@@ -24,7 +25,7 @@
         <dependency>
             <groupId>dnsjava</groupId>
             <artifactId>dnsjava</artifactId>
-            <version>3.5.2</version>
+            <version>${dnsjava.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -42,32 +43,21 @@
             <artifactId>hutool-core</artifactId>
             <version>${cn.hutool.version}</version>
         </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
         <!-- log-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${org.slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${org.slf4j.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>${ch.qos.logback.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-access</artifactId>
-            <version>${ch.qos.logback.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${ch.qos.logback.version}</version>
         </dependency>
     </dependencies>
 

@@ -21,14 +21,18 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @program: github-dns
- * @author: fulin
- * @create: 2021-03-03 17:14
- **/
+ * Parsing github dns using dnsjava
+ * @author FuLin
+ * @since  1.1
+ */
 @Slf4j
 public class GetNewestGithubDns {
 
+    /**
+     * google dns
+     */
     private static final String DNS_SERVER = "8.8.8.8";
+
 
     private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
@@ -49,14 +53,31 @@ public class GetNewestGithubDns {
                     result.add(new GithubDns(githubDns.getHostname(), record.rdataToString()));
                 }
                 String address = Stream.of(records).map(Record::rdataToString).collect(Collectors.joining(","));
-                log.info("hostname: {} , address：{} ", githubDns.getHostname(), address);
+                log.info("hostname: {} , address: {}", githubDns.getHostname(), address);
             }
         }
         log.info("=================================================================");
         generateGithubDnsHosts(result);
+        generateGithubDnsHostsReadme(result);
     }
 
+
+    //**********************************************************generate github hosts**********************************************************//
+
     private static void generateGithubDnsHosts(List<GithubDns> list) {
+        String projectPath = System.getProperty("user.dir");
+        String hostsPath = projectPath + File.separator + "hosts";
+        FileUtil.del(hostsPath);
+        OptionalInt max = list.stream().map(GithubDns::getIpaddress).mapToInt(String::length).max();
+        list.forEach(val ->
+                FileUtil.appendUtf8String(val.getIpaddress() +
+                completionFormatter(val, max.orElse(0)) +
+                val.getHostname() + "\n", hostsPath)
+        );
+    }
+
+
+    private static void generateGithubDnsHostsReadme(List<GithubDns> list) {
         String projectPath = System.getProperty("user.dir");
         String readmePath = projectPath + File.separator + "README.md";
         File file = new File(readmePath);
@@ -69,11 +90,15 @@ public class GetNewestGithubDns {
         FileUtil.appendUtf8String("# update " + formatter.format(LocalDateTime.now()) + "\n", file);
         FileUtil.appendUtf8String("```" + "\n", file);
         OptionalInt max = list.stream().map(GithubDns::getIpaddress).mapToInt(String::length).max();
-        list.forEach(val -> {
-            FileUtil.appendUtf8String(val.getIpaddress() + completionFormatter(val, max.orElse(0)) + val.getHostname() + "\n", file);
-        });
+        list.forEach(val ->
+                FileUtil.appendUtf8String(val.getIpaddress() +
+                completionFormatter(val, max.orElse(0)) +
+                val.getHostname() + "\n", file)
+        );
         FileUtil.appendUtf8String("```", file);
     }
+
+    //**********************************************************formatter**********************************************************//
 
     private static String completionFormatter(GithubDns githubDns, int maxIpLength) {
         int length = githubDns.getIpaddress().length();
@@ -98,6 +123,7 @@ public class GetNewestGithubDns {
 
 
 }
+
 
 @Data
 class GithubDns {
